@@ -27,6 +27,12 @@
               <div class="message-timestamp">
                 Posted on <%= message.created_at.strftime("%B %d, %Y at %l:%M%p") %>
               </div>
+              <div class="message-actions">
+                <form action="/messages/<%= message.id %>/upvote" method="POST">
+                  <strong>Upvotes: <%= message.upvotes %></strong>
+                  <button type="submit">Upvote!</button>
+                </form>
+              </div>
             </li>
           <% end %>
         </ol>
