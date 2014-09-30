@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: #D1D1D1;
   color: rgb(32, 32, 32);
 }
 
@@ -20,6 +20,11 @@ body {
 #message-form #message-body {
   height: 100px;
   width: 100%;
+}
+
+#message-image{
+  height: 150px;
+  width: 150px;
 }
 
 .message-list .message-timestamp {

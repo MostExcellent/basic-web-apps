@@ -10,7 +10,10 @@
   <body>
     <div id="page">
       <h1>Social Wall</h1>
-      <form id="message-form" method="POST" action="/messages">
+      <div>
+        <%= motd %>
+      </div>
+      <form id="message-form" method="POST" action="/newpost">
         <textarea id="message-body" name="body" placeholder="Enter a message here."></textarea>
         <button type="submit">Post Message</button>
       </form>
@@ -21,11 +24,14 @@
         <ol class="message-list">
           <% messages.each do |message| %>
             <li>
+            <% if message.has_image %>
+              <img src="/images/catbread.jpg" id="message-image">
+            <% end %>
               <div class="message-body">
-                <%= message.body %>
+                <%= format_newlines(message.body) %>
               </div>
               <div class="message-timestamp">
-                Posted on <%= message.created_at.strftime("%B %d, %Y at %l:%M%p") %>
+                Posted on <%= format_timestamp(message.created_at) %>
               </div>
             </li>
           <% end %>
