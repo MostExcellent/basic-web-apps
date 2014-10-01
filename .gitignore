@@ -1,7 +1,6 @@
 ## Specific to Our Application:
 *.db
 .env
-message-of-the-day.txt
 
 ## Specific to Cloud9 IDE - http://c9.io
 .c9revisions
