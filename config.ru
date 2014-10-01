@@ -1,3 +1,3 @@
-require "./wall-app"
+require "./a2a"
 
 run Sinatra::Application

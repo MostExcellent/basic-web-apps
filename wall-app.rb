@@ -57,6 +57,7 @@ post("/newpost") do
   else
     erb(:error)
   end
+
 end
 
 post("/messages/*/upvote") do |message_id|
