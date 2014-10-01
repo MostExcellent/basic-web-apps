@@ -9,6 +9,7 @@ class Message
   property :id,         Serial
   property :has_image,  Boolean,  required: true, default: false
   property :body,       Text,     required: true
+  property :upvotes,    Integer,  required: true, default: 0
   property :created_at, DateTime, required: true
 end
 
@@ -55,5 +56,16 @@ post("/newpost") do
     redirect("/")
   else
     erb(:error)
+  end
+end
+
+post("/messages/*/upvote") do |message_id|
+  message = Message.get(message_id)
+  message.upvotes = message.upvotes + 1
+
+  if message.save
+    redirect("/")
+  else
+    body("Something went terribly wrong!")
   end
 end
